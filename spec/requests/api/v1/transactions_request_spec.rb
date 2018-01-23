@@ -20,7 +20,8 @@ describe "Transactions API" do
       expect(response.body.class).to eq String
     end
     it "can get one transaction by id" do 
-            customer = create(:customer)
+      
+      customer = create(:customer)
       merchant = create(:merchant)
       invoice = create(:invoice, customer_id: customer.id, merchant_id: merchant.id)
       transaction_factory = create(:transaction, invoice_id: invoice.id)

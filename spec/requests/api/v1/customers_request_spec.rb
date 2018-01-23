@@ -31,5 +31,4 @@ describe "Customers API" do
       expect(customer["first_name"]).to eq customer_factory.first_name
       expect(customer["last_name"]).to eq customer_factory.last_name
     end
-
 end
