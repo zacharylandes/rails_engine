@@ -6,6 +6,7 @@ Rails.application.routes.draw do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
           get '/:id/items' => "merchant_items#index"
+          get '/most_revenue' => "merchants_by_revenue#index"
         end
         namespace :customers do 
           get '/find' => "searches#show"
