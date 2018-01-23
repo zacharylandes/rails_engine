@@ -6,19 +6,19 @@ class Api::V1::InvoiceItemsController < ApplicationController
   def show
     render json: InvoiceItem.find(params[:id])
   end
-
-  def create
-    render json: InvoiceItem.create(invoice_item_params)
-  end
-
-  def update
-    render json: InvoiceItem.update(params[:id], invoice_item_params)
-  end
-
-  def destroy
-
-    render json: InvoiceItem.delete(params[:id])
-  end
+  # 
+  # def create
+  #   render json: InvoiceItem.create(invoice_item_params)
+  # end
+  #
+  # def update
+  #   render json: InvoiceItem.update(params[:id], invoice_item_params)
+  # end
+  #
+  # def destroy
+  #
+  #   render json: InvoiceItem.delete(params[:id])
+  # end
 
 private
 
