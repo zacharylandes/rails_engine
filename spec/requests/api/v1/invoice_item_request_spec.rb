@@ -19,8 +19,6 @@ end
     expect(response).to be_success
   end
 
-
-
   it "shows a single invoice item" do
 
 
