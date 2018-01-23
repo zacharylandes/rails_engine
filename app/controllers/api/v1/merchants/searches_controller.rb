@@ -10,4 +10,8 @@ class Api::V1::Merchants::SearchesController < ApplicationController
     render json: Merchant.find_by(params.keys.first => params.values.first)
   end
 
+  def random
+    render json: Merchant.order("RANDOM()").first
+  end
+
 end

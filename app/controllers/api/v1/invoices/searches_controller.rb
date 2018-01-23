@@ -7,4 +7,9 @@ class Api::V1::Invoices::SearchesController < ApplicationController
     render json: Invoice.find_by(params.keys.first => params.values.first)
   end
 
+  def random
+    render json: Invoice.order("RANDOM()").first
+  end
+
+
 end

@@ -29,9 +29,19 @@ end
 
       get "/api/v1/items/find?created_at=#{Item.last.created_at.to_s}"
 
-      invoice_items = JSON.parse(response.body)
+      items = JSON.parse(response.body)
       expect(response).to be_successful
-      expect(invoice_items.class).to eq Array
+      expect(items.class).to eq Array
+
+    end
+
+    it "can return a single invoice  via date" do
+
+      get "/api/v1/items/random"
+
+      items = JSON.parse(response.body)
+      expect(response).to be_successful
+      expect(items.class).to eq Hash
 
     end
 

@@ -6,13 +6,17 @@ Rails.application.routes.draw do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
         end
-        namespace :customers do 
+        namespace :customers do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
+          get '/random' => "searches#random"
+
         end
-        namespace :transactions do 
+        namespace :transactions do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
+          get '/random' => "searches#random"
+
         end
         resources :merchants, only: [:index, :show]
         resources :transactions, only: [:index, :show]
@@ -20,16 +24,22 @@ Rails.application.routes.draw do
         namespace :items do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
+          get '/random' => "searches#random"
+
         end
         resources :items, only: [:index,:show]
         namespace :invoices do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
+          get '/random' => "searches#random"
+
         end
         resources :invoices, only: [:index,:show]
         namespace :invoice_items do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
+          get '/random' => "searches#random"
+
         end
         resources :invoice_items, only: [:index,:show]
       end
