@@ -8,12 +8,9 @@ class Api::V1::Transactions::SearchesController < ApplicationController
     render json: Transaction.find_by(transaction_params)
   end
 
-  def transaction_params 
+  def transaction_params
     params.permit(:id, :invoice_id, :credit_card_number, :credit_card_expiration_date, :result, :created_at, :updated_at)
   end
 
-  def random
-    render json: Transaction.order("RANDOM()").first
-  end
 
 end

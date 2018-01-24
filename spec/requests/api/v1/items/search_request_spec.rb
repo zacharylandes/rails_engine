@@ -4,7 +4,6 @@ describe "Item Search API" do
   before (:each) do
     @merchant = create(:merchant)
     create_list(:item, 4, merchant_id: @merchant.id)
-
 end
   context "HTTP GET" do
     it "can return all items via id" do
@@ -39,16 +38,6 @@ end
       items = JSON.parse(response.body)
       expect(response).to be_successful
       expect(items.class).to eq Array
-
-    end
-
-    it "can return a single invoice  via date" do
-
-      get "/api/v1/items/random"
-
-      items = JSON.parse(response.body)
-      expect(response).to be_successful
-      expect(items.class).to eq Hash
 
     end
 
