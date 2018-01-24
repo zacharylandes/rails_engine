@@ -34,6 +34,7 @@ Rails.application.routes.draw do
           get '/:id/items' => "invoices_items#index"
           get '/:id/invoice_items' => "invoice_items#index"
           get '/:id/customer' => "invoice_customer#index"
+          get '/:id/merchant' => "invoice_merchant#index"
         end
         resources :invoices, only: [:index,:show]
         namespace :invoice_items do

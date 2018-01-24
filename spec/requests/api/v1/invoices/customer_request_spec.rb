@@ -1,11 +1,11 @@
 require "rails_helper"
 
-describe "Invoice transaction Search API" do
+describe "Invoice Customer Search API" do
     let(:merchant) {create(:merchant)}
     let(:customer) {create(:customer)}
     let(:invoice) {create(:invoice, merchant_id: merchant.id, customer_id: customer.id)}
   context "HTTP GET" do
-    it "can return all of an invoices transactions via invoice id" do
+    it "can return an invoices customer via invoice id" do
 
      get "/api/v1/invoices/#{invoice.id}/customer"
 
