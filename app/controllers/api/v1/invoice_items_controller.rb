@@ -1,28 +1,15 @@
 class Api::V1::InvoiceItemsController < ApplicationController
   def index
-    render json: InvoiceItem.all
+    render json: InvoiceItem.select("id, item_id, invoice_id, quantity,unit_price").all
   end
 
   def show
-    render json: InvoiceItem.find(params[:id])
+    render json: InvoiceItem.find_by(invoice_item_params)
   end
-  # 
-  # def create
-  #   render json: InvoiceItem.create(invoice_item_params)
-  # end
-  #
-  # def update
-  #   render json: InvoiceItem.update(params[:id], invoice_item_params)
-  # end
-  #
-  # def destroy
-  #
-  #   render json: InvoiceItem.delete(params[:id])
-  # end
 
 private
 
   def invoice_item_params
-    params.require(:invoice_item).permit(:item_id, :invoice_id, :quantity, :unit_price)
+    params.permit(:id, :item_id, :invoice_id, :quantity, :unit_price)
   end
 end

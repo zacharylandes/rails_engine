@@ -4,4 +4,6 @@ class Api::V1::Invoices::InvoiceTransactionsController < ApplicationController
     render json: Invoice.find(params[:id]).transactions
   end
 
+  
+
 end
