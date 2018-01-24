@@ -2,12 +2,16 @@ class Api::V1::Merchants::SearchesController < ApplicationController
 
   def index
     #find_all
-   render json: Merchant.where(params.keys.first => params.values.first)
+   render json: Merchant.where(merchant_params)
   end
 
   def show
     #find
-    render json: Merchant.find_by(params.keys.first => params.values.first)
+    render json: Merchant.find_by(merchant_params)
+  end
+
+  def merchant_params 
+    params.permit(:id, :name, :created_at, :updated_at )
   end
 
 end
