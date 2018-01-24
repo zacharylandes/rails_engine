@@ -22,5 +22,14 @@ class Merchant < ApplicationRecord
     group("merchants.id").order("items_count DESC").
     limit(quantity)
   end
+
+  def self.revenue_by_date(date)
+    binding.pry
+    Merchant.select('merchants.*, SUM(invoice_items.quantity*invoice_items.unit_price) AS revenue').
+    joins(:invoice_items).
+    where("date(invoice_items.created_at) = ?",  date).
+    group("merchants.id").
+    order("revenue DESC")
+  end
   
 end
