@@ -17,9 +17,17 @@ describe "Merchant most revenue" do
 
      get "/api/v1/merchants/most_revenue?quantity=1"
 
-      items = JSON.parse(response.body)
+      merchants = JSON.parse(response.body)
       expect(response).to be_successful
-      expect(items.count).to eq(4)
+      expect(merchants.count).to eq(1)
+    end
+    it "can return top x merchants by number of items sold" do 
+
+      get "/api/v1/merchants/most_items?quantity=1"
+
+      merchants = JSON.parse(response.body)
+      expect(response).to be_successful
+      expect(merchants.count).to eq(1)
     end
   end
 end
