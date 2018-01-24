@@ -16,8 +16,8 @@ class Merchant < ApplicationRecord
 
   def self.top_merchants_by_items_sold(quantity=1)
     Merchant.select('merchants.*, count(items) as items_count').
-    joins(:items, :transactions).
-    merge(Transaction.success).
+    joins(:items).
+    joins(:transactions).
     group("merchants.id").
     order("items_count DESC").
     limit(quantity)
