@@ -14,12 +14,13 @@ class Merchant < ApplicationRecord
     limit(quantity)
   end
 
-  def self.top_merchants_by_items_sold
+  def self.top_merchants_by_items_sold(quantity)
     Merchant.select('merchants.*, count(items) as items_count').
     joins(:items).
     joins(:transactions).
     where("transactions.result": "success").
-    group("merchants.id").order("items_count DESC")
+    group("merchants.id").order("items_count DESC").
+    limit(quantity)
   end
   
 end

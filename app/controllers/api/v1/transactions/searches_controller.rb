@@ -5,7 +5,7 @@ class Api::V1::Transactions::SearchesController < ApplicationController
   end
 
   def show
-    render json: Transaction.find_by(transaction_params )
+    render json: Transaction.find_by(transaction_params)
   end
 
   def transaction_params 
