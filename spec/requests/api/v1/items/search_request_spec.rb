@@ -4,7 +4,6 @@ describe "Item Search API" do
   before (:each) do
     @merchant = create(:merchant)
     create_list(:item, 4, merchant_id: @merchant.id)
-
 end
   context "HTTP GET" do
     it "can return all items via id" do
@@ -36,9 +35,9 @@ end
 
       get "/api/v1/items/find?created_at=2012-03-27T14:54:05.000Z"
 
-      invoice_items = JSON.parse(response.body)
+      items = JSON.parse(response.body)
       expect(response).to be_successful
-      expect(invoice_items.class).to eq Array
+      expect(items.class).to eq Array
 
     end
 

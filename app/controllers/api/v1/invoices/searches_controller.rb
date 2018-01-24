@@ -11,4 +11,9 @@ class Api::V1::Invoices::SearchesController < ApplicationController
     params.permit(:id,:customer_id, :status, :merchant_id, :created_at, :updated_at)
   end
 
+  def random
+    render json: Invoice.order("RANDOM()").first
+  end
+
+
 end

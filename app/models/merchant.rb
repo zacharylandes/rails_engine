@@ -29,5 +29,5 @@ class Merchant < ApplicationRecord
     where("date(invoice_items.created_at) = ?",  date).
     sum('invoice_items.quantity*invoice_items.unit_price')
   end
-  
+
 end

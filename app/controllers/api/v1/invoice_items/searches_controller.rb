@@ -14,4 +14,7 @@ class Api::V1::InvoiceItems::SearchesController < ApplicationController
     params.permit(:id ,:item_id, :invoice_id, :quantity, :unit_price, :created_at, :updated_at)
   end
 
+
+
+
 end
