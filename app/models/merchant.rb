@@ -24,7 +24,6 @@ class Merchant < ApplicationRecord
   end
 
   def self.revenue_by_date(date)
-    binding.pry
     Merchant.select('merchants.*, SUM(invoice_items.quantity*invoice_items.unit_price) AS revenue').
     joins(:invoice_items).
     where("date(invoice_items.created_at) = ?",  date).

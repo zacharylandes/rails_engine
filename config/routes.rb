@@ -6,6 +6,7 @@ Rails.application.routes.draw do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
           get '/:id/items' => "merchant_items#index"
+          get '/:id/invoices' => "merchant_invoices#index"
           get '/most_revenue' => "merchants_by_revenue#index"
           get '/most_items' => "merchants_by_items_sold#index"
           get '/revenue' => "merchants_revenue_by_date#index"
