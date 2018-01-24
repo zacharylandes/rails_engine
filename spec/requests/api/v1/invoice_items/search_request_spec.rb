@@ -6,7 +6,6 @@ describe "Invoice Item Search API" do
   @customer = create(:customer)
   @invoice = create(:invoice, customer_id: @customer.id, merchant_id:@merchant.id)
   @item = create(:item, merchant_id:@merchant.id)
-
   create_list(:invoice_item, 3, invoice_id: @invoice.id, item_id: @item.id)
 end
   context "HTTP GET" do
@@ -20,7 +19,6 @@ end
     end
 
     it "can return a single invoice item via id" do
-
       get "/api/v1/invoice_items/find?id=#{InvoiceItem.last.id}"
 
       invoice_items = JSON.parse(response.body)

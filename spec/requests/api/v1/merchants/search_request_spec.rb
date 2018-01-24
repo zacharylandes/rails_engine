@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Merchant Search API" do 
+describe "Merchant Search API" do
   context "HTTP GET" do
     it "can return all merchants via search" do
 

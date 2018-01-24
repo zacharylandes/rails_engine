@@ -27,6 +27,8 @@ describe "Invoice API" do
 
     expect(invoice.status).to eq(show_invoice['status'])
   end
+
+  
   # #
   # it "can create a new invrspoice" do
   #   merchant = create(:merchant)
