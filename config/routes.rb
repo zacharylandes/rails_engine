@@ -12,6 +12,7 @@ Rails.application.routes.draw do
           get '/revenue' => "merchants_revenue_by_date#index"
           get '/:id/revenue' => "single_merchant_revenue#show"
           get '/:id/favorite_customer' => "favorite_customer#show"
+          get '/:id/customers_with_pending_invoices' => "favorite_customer#index"
 
         end
         namespace :customers do

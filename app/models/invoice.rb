@@ -24,5 +24,16 @@ class Invoice < ApplicationRecord
       limit(quantity)
    end
 
+     def customers_with_pending_invoices(merchant)
+      binding.pry
+    customers.find_by_sql("SELECT customers.* FROM customers JOIN invoices on customers.id = customer_id 
+    JOIN transactions on invoices.id = transaction.invoice_id WHERE invoices.merchant_id = #{merchant} 
+    AND transactions.result = 'failed'
+    EXCEPT 
+    SELECT customers.* FROM customers JOIN invoices on customers.id = customer_id 
+    JOIN transactions on invoices.id = transaction.invoice_id WHERE invoices.merchant_id = #{merchant} 
+    AND transactions.result = 'success' ")
+  end
+
   
 end
