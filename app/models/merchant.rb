@@ -39,17 +39,9 @@ class Merchant < ApplicationRecord
     sum('invoice_items.quantity*invoice_items.unit_price')/100)}
   end
 
-  def favorite_customer 
+  def favorite_customer
     self.customers.joins(:transactions, :invoices).merge(Transaction.success).group('customers.id').order('count(transactions) desc').limit(1).first
   end
-  
-  def customers_with_pending_invoices 
-    customers.find_by_sql("SELECT customers.* FROM customers JOIN invoices on customers.id = customer_id 
-    JOIN transactions on invoices.id = transaction.invoice_id WHERE invoices.merchant_id = #{self.id} 
-    AND transactions.result = 'failed'
-    EXCEPT 
-    SELECT customers.* FROM customers JOIN invoices on customers.id = customer_id 
-    JOIN transactions on invoices.id = transaction.invoice_id WHERE invoices.merchant_id = #{self.id} 
-    AND transactions.result = 'success' ")
-  end
+
+
 end
