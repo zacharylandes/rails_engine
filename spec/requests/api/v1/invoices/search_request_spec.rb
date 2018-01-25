@@ -4,7 +4,7 @@ describe "Invoice Search API" do
   before (:each) do
     @merchant = create(:merchant)
     @customer = create(:customer)
-    create_list(:invoice, 4, merchant_id: @merchant.id, customer_id: @customer.id)
+    create(:invoice, merchant_id: @merchant.id, customer_id: @customer.id)
 
 end
   context "HTTP GET" do
@@ -26,7 +26,7 @@ end
 
     end
 
-    xit "can return a single invoice  via date" do
+    it "can return a single invoice  via date" do
 
       get "/api/v1/invoices/find?created_at=#{Invoice.last.created_at.to_s}"
       invoice_items = JSON.parse(response.body)
