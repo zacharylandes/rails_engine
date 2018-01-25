@@ -8,9 +8,9 @@ class Api::V1::MerchantsController < ApplicationController
     render json: Merchant.find_by(merchant_params)
   end
 
-  private 
+  private
 
-  def merchant_params 
+  def merchant_params
     params.permit(:id, :name )
   end
 end
