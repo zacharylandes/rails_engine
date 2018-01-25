@@ -30,7 +30,7 @@ describe "Merchant most revenue" do
       merchants = JSON.parse(response.body)
       expect(response).to be_successful
       expect(merchants.count).to eq(1)
-      expect(merchants[0]["id"]).to eq merchant_1.id
+      expect(merchants[0]["id"]).to eq merchant_2.id
     end
     it "can return top x merchants by number of items sold" do 
 
