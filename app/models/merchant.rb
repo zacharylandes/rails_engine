@@ -28,17 +28,15 @@ class Merchant < ApplicationRecord
     .merge(Transaction.success).sum('invoice_items.quantity*invoice_items.unit_price')/100)}
   end
 
-   def single_merchant_revenue_by_date(date)
+  def single_merchant_revenue_by_date(date)
     d = DateTime.parse(date)
     {'revenue' => (invoices.joins(:invoice_items, :transactions)
     .merge(Transaction.success)
-    .where('invoices.updated_at' => d.beginning_of_day..d.end_of_day).
-    sum('invoice_items.quantity*invoice_items.unit_price')/100)}
+    .where('invoices.updated_at' => d.beginning_of_day..d.end_of_day)
+    .sum('invoice_items.quantity*invoice_items.unit_price')/100)}
   end
 
   def favorite_customer
     self.customers.joins(:transactions, :invoices).merge(Transaction.success).group('customers.id').order('count(transactions) desc').limit(1).first
   end
-
-
 end
