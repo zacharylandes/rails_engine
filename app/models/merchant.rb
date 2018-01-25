@@ -5,9 +5,6 @@ class Merchant < ApplicationRecord
   has_many :invoice_items, through: :invoices
   has_many :transactions, through: :invoices
 
-  # default_scope {order('id ASC')}
-
-
   def self.top_revenue_earners(quantity=1)
     select('merchants.*, SUM(invoice_items.quantity*invoice_items.unit_price) AS revenue').
     joins(:invoices => [:invoice_items, :transactions]).
