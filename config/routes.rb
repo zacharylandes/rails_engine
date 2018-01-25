@@ -11,6 +11,7 @@ Rails.application.routes.draw do
           get '/most_items' => "merchants_by_items_sold#index"
           get '/revenue' => "merchants_revenue_by_date#index"
           get '/:id/revenue' => "single_merchant_revenue#show"
+          get '/:id/favorite_customer' => "favorite_customer#show"
 
         end
         namespace :customers do
