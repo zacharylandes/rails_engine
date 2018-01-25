@@ -1,6 +1,6 @@
   require "rails_helper"
 
-describe "Merchant most revenue" do
+describe "merchant favorite customer" do
   let!(:merchant_1) { create(:merchant, name: "sony") }
   let!(:merchant_2) { create(:merchant, name: "apple") }
   
@@ -23,13 +23,13 @@ describe "Merchant most revenue" do
     create(:transaction, invoice_id: merchant_1_invoice_2.id, result: "failure")
   end
   context "HTTP GET" do
-    it "can return top x merchants by most revenue" do
+    it "can return single merchant revenue by date" do
 
-     get "/api/v1/merchants/revenue?date=2012-04-16"
+     get "/api/v1/merchants/#{merchant_1.id}/favorite_customer"
 
       revenue = JSON.parse(response.body)
       expect(response).to be_successful
-      expect(revenue.to_i).to eq(220)
+      expect(revenue.to_i).to eq(10)
     end
   end
 end

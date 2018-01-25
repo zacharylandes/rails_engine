@@ -7,6 +7,11 @@ class Api::V1::ItemsController < ApplicationController
     render json: Item.find_by(item_params)
   end
 
+  # def unit_price_to_dollars(price)
+  #   binding.pry
+  #   (price / 100)
+  # end
+
 
 private
 

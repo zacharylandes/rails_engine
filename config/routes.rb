@@ -6,17 +6,19 @@ Rails.application.routes.draw do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
           get '/:id/items' => "merchant_items#index"
+          get '/:id/invoices' => "merchant_invoices#index"
           get '/most_revenue' => "merchants_by_revenue#index"
           get '/most_items' => "merchants_by_items_sold#index"
           get '/revenue' => "merchants_revenue_by_date#index"
-          get '/random' => "random_controller#show"
+          get '/:id/revenue' => "single_merchant_revenue#show"
+          get '/:id/favorite_customer' => "favorite_customer#show"
+          get '/:id/customers_with_pending_invoices' => "favorite_customer#index"
         end
         namespace :customers do
           get '/find' => "searches#show"
           get '/find_all' => "searches#index"
           get '/:id/invoices' => "customer_invoices#index"
           get '/:id/transactions' => "customer_transactions#index"
-          get '/random' => "random_controller#show"
 
         end
         namespace :transactions do
@@ -35,8 +37,6 @@ Rails.application.routes.draw do
           get '/find_all' => "searches#index"
           get '/:id/invoice_items' => "items_invoice_items#index"
           get '/:id/merchant' => "items_merchant#show"
-          get '/random' => "random_controller#show"
-
         end
         resources :items, only: [:index,:show]
         namespace :invoices do
@@ -44,8 +44,9 @@ Rails.application.routes.draw do
           get '/find_all' => "searches#index"
           get '/:id/transactions' => "invoice_transactions#index"
           get '/:id/items' => "invoices_items#index"
-          get '/random' => "random_controller#show"
-
+          get '/:id/invoice_items' => "invoice_items#index"
+          get '/:id/customer' => "invoice_customer#index"
+          get '/:id/merchant' => "invoice_merchant#index"
         end
         resources :invoices, only: [:index,:show]
         namespace :invoice_items do

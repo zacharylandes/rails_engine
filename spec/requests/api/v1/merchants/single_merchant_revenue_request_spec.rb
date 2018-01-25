@@ -25,11 +25,11 @@ describe "Merchant most revenue" do
   context "HTTP GET" do
     it "can return top x merchants by most revenue" do
 
-     get "/api/v1/merchants/revenue?date=2012-04-16"
+     get "/api/v1/merchants/#{merchant_1.id}/revenue"
 
       revenue = JSON.parse(response.body)
       expect(response).to be_successful
-      expect(revenue.to_i).to eq(220)
+      expect(revenue.to_i).to eq(20)
     end
   end
 end
