@@ -10,6 +10,8 @@ Rails.application.routes.draw do
           get '/most_revenue' => "merchants_by_revenue#index"
           get '/most_items' => "merchants_by_items_sold#index"
           get '/revenue' => "merchants_revenue_by_date#index"
+          get '/:id/revenue' => "single_merchant_revenue#show"
+
         end
         namespace :customers do
           get '/find' => "searches#show"
