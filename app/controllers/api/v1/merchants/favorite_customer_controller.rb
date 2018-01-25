@@ -1,7 +1,7 @@
 class Api::V1::Merchants::FavoriteCustomerController < ApplicationController
-  
+
   def index
-    render json: Invoice.find_by(merchant_id => params[:id]).customers_with_pending_invoices(Merchant.find(params[:id]))
+    render json: Customer.pending_invoices(params[:id])
   end
 
   def show
