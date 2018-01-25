@@ -9,7 +9,16 @@ class Item < ApplicationRecord
   end
 
   def best_day
-    day = invoices.joins(:invoice_items).select('invoices.created_at, SUM(invoice_items.quantity) AS CREATED_COUNT').group('invoices.created_at').order(' CREATED_COUNT DESC').limit(1).first.created_at
+    day = invoices
+    .joins(:invoice_items)
+    .select('invoices.created_at, SUM(invoice_items.quantity) AS CREATED_COUNT')
+    .group('invoices.created_at')
+    .order(' CREATED_COUNT DESC')
+    .limit(1).first.created_at
     {'best_day' => day}
+  end
+
+  def self.most_items(quantity)
+      Item.select('items.*, SUM(invoice_items.quantity) AS ITEM_COUNT').joins(:invoice_items, :invoices => [:transactions]).merge(Transaction.success).group('items.id').order('ITEM_COUNT DESC').limit(quantity)
   end
 end
