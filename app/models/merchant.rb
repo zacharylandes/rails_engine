@@ -5,29 +5,43 @@ class Merchant < ApplicationRecord
   has_many :invoice_items, through: :invoices
   has_many :transactions, through: :invoices
 
+  # default_scope {order('id ASC')}
+
 
   def self.top_revenue_earners(quantity=1)
-    Merchant.select('merchants.*, SUM(invoice_items.quantity*invoice_items.unit_price) AS revenue').
-    joins(:invoice_items).
+    select('merchants.*, SUM(invoice_items.quantity*invoice_items.unit_price) AS revenue').
+    joins(:invoices => [:invoice_items, :transactions]).
+    merge(Transaction.success).
     group("merchants.id").
     order("revenue DESC").
     limit(quantity)
   end
 
-  def self.top_merchants_by_items_sold(quantity=1)
-    Merchant.select('merchants.*, count(items) as items_count').
-    joins(:items).
-    joins(:transactions).
-    group("merchants.id").
+  def self.top_merchants_by_items_sold(quantity)
+    Merchant.select('merchants.*, sum(invoice_items.quantity) as items_count').
+    joins(:invoices => [:invoice_items, :transactions]).
+    merge(Transaction.success).
+    group(:id).
     order("items_count DESC").
     limit(quantity)
   end
 
-  def self.revenue_by_date(date)
-    Merchant.
-    joins(:invoice_items).
-    where("date(invoice_items.created_at) = ?",  date).
-    sum('invoice_items.quantity*invoice_items.unit_price')
+  def single_merchant_revenue
+    {'revenue' => (invoices.joins(:invoice_items, :transactions)
+    .merge(Transaction.success).sum('invoice_items.quantity*invoice_items.unit_price')/100)}
   end
+
+   def single_merchant_revenue_by_date(date)
+    d = DateTime.parse(date)
+    {'revenue' => (invoices.joins(:invoice_items, :transactions)
+    .merge(Transaction.success)
+    .where('invoices.updated_at' => d.beginning_of_day..d.end_of_day).
+    sum('invoice_items.quantity*invoice_items.unit_price')/100)}
+  end
+
+  def favorite_customer
+    self.customers.joins(:transactions, :invoices).merge(Transaction.success).group('customers.id').order('count(transactions) desc').limit(1).first
+  end
+
 
 end
