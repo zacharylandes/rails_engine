@@ -6,7 +6,7 @@ The Rails Engine API allows users to hit api endpoints that contain a variety of
 
 This project requires  Ruby version 2.4.1 and rails 5.4.1 
 
-Set Up
+## Set Up
 
 Fork this repository on Github.
 
@@ -42,13 +42,18 @@ then
 `` rails s ``
 to start your server.
 
-in a new terminal window and in any directory other than the rails engine project directory
+## Spec harness 
+ In a new terminal window and in any directory other than the rails engine project directory
 
  run:
  `` cd .. ``
+ 
  `` git clone https://github.com/turingschool/rales_engine_spec_harness.git``
+ 
  ``  cd rales_engine_spec_harness ``
+ 
  `` bundle  ``
+ 
  `` bundle exe rake ``
 
 
