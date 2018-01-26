@@ -18,31 +18,36 @@ in your terminal , type:
 
  `` cd rails_engine
 
-run  bundle install
+ `` bundle install
 
 then initiatiate the migration of your database
 
 run :
 
-rake db:create
-
-	rake db:migrate
-	rake import  
+``rake db:create
+  rake db:migrate
+  rake import  ``
+  
  this may take a few minutes
-Run rspec to run your test suite 
+ 
+type 
 
-then type rails s to start your server.
+`` rspec ``
+
+to run your test suite 
+
+then 
+`` rails s ``
+to start your server.
 
 in a new terminal window and in any directory other than the rails engine project directory
 
  run:
-
-cd ..
-
-git clone https://github.com/turingschool/rales_engine_spec_harness.git
-cd rales_engine_spec_harness
-bundle
-bundle exe rake
+ `` cd .. 
+    git clone https://github.com/turingschool/rales_engine_spec_harness.git
+    cd rales_engine_spec_harness
+    bundle
+    bundle exe rake ``
 
 
 to run the spec harness.
