@@ -29,7 +29,7 @@ describe "Merchant most revenue" do
 
       revenue = JSON.parse(response.body)
       expect(response).to be_successful
-      expect(revenue.to_i).to eq(20)
+      expect(revenue).to eq({"revenue"=>"0.1"})
     end
   end
 end

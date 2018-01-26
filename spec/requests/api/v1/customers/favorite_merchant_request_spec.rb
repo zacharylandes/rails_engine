@@ -2,11 +2,11 @@ require "rails_helper"
 
 describe "Customer Search API" do
   context "HTTP GET to favorite merchant controller" do
-    let!(:customer_1){create(:customer, id: 1)}
+    let!(:customer_1){create(:customer)}
     let!(:merchant_1){create(:merchant)}
-    let!(:invoice){create(:invoice, merchant_id: merchant_1.id, customer_id:customer_1.id)}
-    let!(:transaction1){create(:transaction, invoice_id: invoice.id)}
-    let!(:transaction2){create(:transaction, invoice_id: invoice.id)}
+    let!(:invoice){create(:invoice, merchant_id: merchant_1.id, customer_id: customer_1.id)}
+    let!(:transaction1){create(:transaction, invoice_id: invoice.id, result: 'success')}
+    let!(:transaction2){create(:transaction, invoice_id: invoice.id, result: 'success')}
 
     it "find a customers favorite merchant" do
 
@@ -14,7 +14,9 @@ describe "Customer Search API" do
       
       merchant = JSON.parse(response.body)
       expect(response).to be_successful
-      expect(merchant).to eq 'something'
+      expect(merchant["id"]).to eq merchant_1.id
+      expect(merchant["name"]).to eq 'MyString'
+      expect(merchant["trans_count"]).to eq 2
     end
 
   end
