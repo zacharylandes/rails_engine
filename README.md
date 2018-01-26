@@ -1,24 +1,49 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails Engine
 
-Things you may want to cover:
+The Rails Engine API allows users to hit api endpoints that contain a variety of data relating to customers, transactions, invoices and items. It also  performs business analytics on these resources
 
-* Ruby version
+This project requires  Ruby version 2.4.1 and rails 5.4.1 
 
-* System dependencies
+Set Up
 
-* Configuration
+Fork this repository on Github.
 
-* Database creation
+visit your forked repo and clone your forked repository in to the directory of your choosing with
 
-* Database initialization
+`` git clone https://github.com/zacharylandes/rails_engine.git ``
 
-* How to run the test suite
+in your terminal , type:
 
-* Services (job queues, cache servers, search engines, etc.)
+ cd rails_engine
 
-* Deployment instructions
+run  bundle install
 
-* ...
+then initiatiate the migration of your database
+
+run :
+
+rake db:create
+
+	rake db:migrate
+	rake import  
+ this may take a few minutes
+Run rspec to run your test suite 
+
+then type rails s to start your server.
+
+in a new terminal window and in any directory other than the rails engine project directory
+
+ run:
+
+cd ..
+
+git clone https://github.com/turingschool/rales_engine_spec_harness.git
+cd rales_engine_spec_harness
+bundle
+bundle exe rake
+
+
+to run the spec harness.
+
