@@ -43,6 +43,9 @@ then
 to start your server.
 
 ## Spec harness 
+
+Note: The rails server must be running for the spec harness to work. Default port is 3000.
+
  In a new terminal window and in any directory other than the rails engine project directory
 
  run:
