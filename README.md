@@ -60,7 +60,7 @@ Note: The rails server must be running for the spec harness to work. Default por
  
  `` bundle  ``
  
- `` bundle exe rake ``
+ `` bundle exec rake ``
 
 
 to run the spec harness.
