@@ -16,7 +16,6 @@ describe "Customer Search API" do
       expect(response).to be_successful
       expect(merchant["id"]).to eq merchant_1.id
       expect(merchant["name"]).to eq 'MyString'
-      expect(merchant["trans_count"]).to eq 2
     end
 
   end

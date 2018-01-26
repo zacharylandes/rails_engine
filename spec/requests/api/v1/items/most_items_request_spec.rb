@@ -30,7 +30,7 @@ describe "Item best day api" do
       expect(day.length).to eq 1
       expect(day.class).to eq Array
       expect(day[0]["merchant_id"]).to eq merchant.id
-      expect(day[0]["item_count"]).to eq 1
+      expect(day[0]["id"]).to eq item.id
     end
   end
 end
