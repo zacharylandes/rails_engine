@@ -1,6 +1,6 @@
 # README
 
-Rails Engine
+## Rails Engine
 
 The Rails Engine API allows users to hit api endpoints that contain a variety of data relating to customers, transactions, invoices and items. It also  performs business analytics on these resources
 
