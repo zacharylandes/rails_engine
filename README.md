@@ -39,7 +39,9 @@ type
 to run your test suite 
 
 then 
+
 `` rails s ``
+
 to start your server.
 
 ## Spec harness 
@@ -49,6 +51,7 @@ Note: The rails server must be running for the spec harness to work. Default por
  In a new terminal window and in any directory other than the rails engine project directory
 
  run:
+ 
  `` cd .. ``
  
  `` git clone https://github.com/turingschool/rales_engine_spec_harness.git``
