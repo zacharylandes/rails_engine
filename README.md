@@ -12,7 +12,7 @@ Fork this repository on Github.
 
 visit your forked repo and clone your forked repository in to the directory of your choosing with
 
-``   git clone https://github.com/zacharylandes/rails_engine.git        ``
+``   git clone https://github.com/your_username/rails_engine.git        ``
 
 in your terminal , type:
 
@@ -24,9 +24,9 @@ then initiatiate the migration of your database
 
 run :
 
-``rake db:create
-  rake db:migrate
-  rake import  ``
+``rake db:create ``
+`` rake db:migrate ``
+ `` rake import  ``
   
  this may take a few minutes
  
@@ -43,11 +43,11 @@ to start your server.
 in a new terminal window and in any directory other than the rails engine project directory
 
  run:
- `` cd .. 
-    git clone https://github.com/turingschool/rales_engine_spec_harness.git
-    cd rales_engine_spec_harness
-    bundle
-    bundle exe rake ``
+ `` cd .. ``
+ `` git clone https://github.com/turingschool/rales_engine_spec_harness.git``
+ ``  cd rales_engine_spec_harness ``
+ `` bundle  ``
+ `` bundle exe rake ``
 
 
 to run the spec harness.
