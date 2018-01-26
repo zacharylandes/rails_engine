@@ -25,8 +25,10 @@ then initiatiate the migration of your database
 run :
 
 ``rake db:create ``
+
 `` rake db:migrate ``
- `` rake import  ``
+
+`` rake import  ``
   
  this may take a few minutes
  
