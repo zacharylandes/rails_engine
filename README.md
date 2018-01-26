@@ -16,9 +16,9 @@ visit your forked repo and clone your forked repository in to the directory of y
 
 in your terminal , type:
 
- `` cd rails_engine
+ `` cd rails_engine ``
 
- `` bundle install
+ `` bundle install ``
 
 then initiatiate the migration of your database
 
