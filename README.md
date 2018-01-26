@@ -2,7 +2,7 @@
 
 ## Rails Engine
 
-The Rails Engine API allows users to hit api endpoints that contain a variety of data relating to customers, transactions, invoices and items. It also  performs business analytics on these resources
+The Rails Engine API allows users to hit api endpoints that contain a variety of data relating to customers, transactions, invoices and items. It also  performs business analytics on these resources.
 
 This project requires  Ruby version 2.4.1 and rails 5.4.1 
 
