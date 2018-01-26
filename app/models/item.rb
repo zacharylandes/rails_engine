@@ -6,7 +6,10 @@ class Item < ApplicationRecord
 
   def self.most_revenue(quantity)
     select('items.*, SUM(invoice_items.quantity * invoice_items.unit_price) AS revenue').
-    joins(:invoice_items).group('items.id').order('revenue DESC').limit(quantity)
+    joins(:invoice_items)
+    .group('items.id')
+    .order('revenue DESC')
+    .limit(quantity)
   end
 
   def best_day

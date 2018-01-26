@@ -25,7 +25,8 @@ class Merchant < ApplicationRecord
 
   def single_merchant_revenue
     {'revenue' => (invoices.joins(:invoice_items, :transactions)
-    .merge(Transaction.success).sum('invoice_items.quantity*invoice_items.unit_price')/100)}
+    .merge(Transaction.success)
+    .sum('invoice_items.quantity*invoice_items.unit_price')/100)}
   end
 
   def single_merchant_revenue_by_date(date)
