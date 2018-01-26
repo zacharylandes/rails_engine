@@ -12,11 +12,11 @@ Fork this repository on Github.
 
 visit your forked repo and clone your forked repository in to the directory of your choosing with
 
-`` git clone https://github.com/zacharylandes/rails_engine.git ``
+``   git clone https://github.com/zacharylandes/rails_engine.git        ``
 
 in your terminal , type:
 
- cd rails_engine
+ `` cd rails_engine
 
 run  bundle install
 
